@@ -2,6 +2,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config
 from pymongo import MongoClient
+from main import main as main_blueprint
 
 bootstrap = Bootstrap()
 db = None
@@ -15,9 +16,6 @@ def create_app(config_name):
     bootstrap = Bootstrap(app)
     client = MongoClient(app.config['PYMONGO_DATABASE_URI'])
     db = client[app.config['PYMONGO_DB']]
-
-    from main import main as main_blueprint
-
     app.register_blueprint(main_blueprint)
 
     return app
