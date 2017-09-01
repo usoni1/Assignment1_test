@@ -1,8 +1,9 @@
+from app import *
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config
 from pymongo import MongoClient
-from main import main_test as main_blueprint
+
 
 bootstrap = Bootstrap()
 db = None

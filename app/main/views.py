@@ -1,7 +1,8 @@
+from app import *
 from flask import redirect, url_for, session, render_template
 from . import main_test
 from .forms import NameForm, SignUpForm
-from .. import db
+
 
 @main_test.route('/', methods=['GET', 'POST'])
 def index():
