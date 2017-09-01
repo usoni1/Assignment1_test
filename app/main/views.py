@@ -9,7 +9,7 @@ def index():
     form = NameForm()
     if form.validate_on_submit():
         session['name'] = form.name.data
-        return redirect(url_for('main_test.index'))
+        return redirect(url_for('.index'))
     return render_template('index.html', form=form, name=session.get('name'))
 
 @main_test.route('/sign_up', methods=['GET','POST'])
@@ -17,7 +17,7 @@ def sign_up():
     form = SignUpForm()
     if form.validate_on_submit():
         db.users.insert_one({"name": form.name.data})
-        return redirect(url_for('main_test.index'))
+        return redirect(url_for('.index'))
     return render_template('sign_up.html', form = form)
 
 @main_test.route('/test_db', methods=['GET'])
@@ -29,4 +29,4 @@ def test_db():
 @main_test.route('/logout')
 def logout():
     session['name'] = None
-    return redirect(url_for('main_test.index'))
+    return redirect(url_for('.index'))
