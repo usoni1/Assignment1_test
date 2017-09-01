@@ -18,6 +18,4 @@ def create_app(config_name):
     bootstrap = Bootstrap(app)
     client = MongoClient(app.config['PYMONGO_DATABASE_URI'])
     db = client[app.config['PYMONGO_DB']]
-
-
     return app
