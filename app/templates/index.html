@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Assignment1_test{% endblock %}
+
+{% block page_content %}
+    {% if name %}
+    Welcome {{ name }}
+    {% else %}
+        Kindly Login
+        {{ wtf.quick_form(form) }}
+    {% endif %}
+
+
+{% endblock %}

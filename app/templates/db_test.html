@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}db_test{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger!{% endif %}!</h1>
+    <h4>Restaurants list:</h4>
+</div>
+{% for restaurant in restaurants %}
+    <div class=restaurant>{{ restaurant.name }}</div>
+{% endfor %}
+    <a href="{{ url_for('main.index') }}">Go Back...</a>
+{% endblock %}
