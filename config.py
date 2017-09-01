@@ -1,3 +1,5 @@
+import os
+
 class Config:
     SECRET_KEY = 'YATARTH IS A DINCHUCKS'
 
@@ -23,11 +25,12 @@ class ProductionConfig(Config):
     pass
 
 class ProductionMongoConnect(ProductionConfig):
-    pass
+    PYMONGO_DATABASE_URI = os.environ.get('MONGOHQ_URL')
+    PYMONGO_DB = 'app76062579'
 
 config = {
     'development': DevelopmentMongoConnect,
     'testing': TestingMongoConnect,
     'production': ProductionMongoConnect,
-    'default': DevelopmentMongoConnect
+    'default': ProductionMongoConnect
 }
